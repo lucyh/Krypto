@@ -17,6 +17,11 @@
     <string name="divide">&#247;</string>
     <string name="right_arrow">Turn device right to calculate</string>
     <string name="up_arrow">Turn device up to reset puzzle</string>
-    <!-- <string name="screen_width">315</string>
-    <string name="screen_height">455</string> -->
+    <string name="main_menu_button_10">1-10</string>
+    <string name="main_menu_button_25">1-25</string>
+    <string name="main_menu_image">Krypto icon</string>
+    <string name="quit">Quit</string>
+    <string name="main_menu_instr">(Select a difficulty)</string>
+    <string name="krypto1">KYT</string>
+    <string name="krypto2">RPO</string>
 </resources>

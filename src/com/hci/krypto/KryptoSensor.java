@@ -19,12 +19,24 @@ public class KryptoSensor
 	private float timestamp;
 	private SensorManager   mSensorManager;
 	private Sensor 			mSensor;
+//	private KryptoSensor				ks;
+//	private SensorManager   			sm;
+//	private Sensor 						sen;
+//	private SensorEventListener 		listener;
+
 
 
 	public KryptoSensor( SensorManager mSensorManager, Sensor mSensor )
 	{
         this.mSensorManager = mSensorManager;
         this.mSensor = mSensor;
+//      sm = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
+//  	  sm.registerListener(listener, sen, SensorManager.SENSOR_DELAY_NORMAL);
+//  	  sen = sm.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+//  	  sm.registerListener((SensorEventListener) this, sen, SensorManager.SENSOR_DELAY_NORMAL);
+//      ks = new KryptoSensor( sm, sen );
+      
+        
 	}
 
 	@SuppressLint({ "FloatMath", "FloatMath" })

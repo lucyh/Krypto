@@ -1,0 +1,7 @@
+<resources>
+    <color name="normal_button_color">#66CC66</color>
+    <color name="selected_button_color">#339966</color>
+    <color name="text_black">#000000</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="background_color">#99FF99</color>
+</resources>
