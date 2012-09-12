@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false" >
 
     <TextView
         android:id="@+id/goal_num"
@@ -33,9 +34,72 @@
         android:layout_marginLeft="20dp"
         android:minHeight="48dp"
         android:minWidth="250dp"
+        android:onClick="newKryptoPuzzle"
         android:text="@string/new_puz"
         android:textSize="50dp" />
     
+    <Button
+        android:id="@+id/num3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/num1"
+        android:layout_alignBottom="@+id/num1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/num2"
+        android:layout_marginRight="150dp"
+        android:layout_marginTop="15dp"
+        android:background="#D8D8D8"
+        android:height="130dp"
+        android:onClick="selectNumber"
+        android:text="@string/filler_num"
+        android:textSize="80dp"
+        android:width="130dp" />
+    
+    <Button
+        android:id="@+id/num1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/num2"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="15dp"
+        android:background="#D8D8D8"
+        android:height="130dp"
+        android:onClick="selectNumber"
+        android:text="@string/filler_num"
+        android:textSize="80dp"
+        android:width="130dp" />
+
+    <Button
+        android:id="@+id/num2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/goal_num"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@+id/num0"
+        android:background="#D8D8D8"
+        android:height="130dp"
+        android:onClick="selectNumber"
+        android:text="@string/filler_num"
+        android:textSize="80dp"
+        android:width="130dp" />
+
+    <Button
+        android:id="@+id/num0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/num2"
+        android:layout_alignBottom="@+id/num2"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="60dp"
+        android:background="#D8D8D8"
+        android:height="130dp"
+        android:onClick="selectNumber"
+        android:text="@string/filler_num"
+        android:textSize="80dp"
+        android:width="130dp" />
+
     <Button
         android:id="@+id/num4"
         android:layout_width="wrap_content"
@@ -43,70 +107,13 @@
         android:layout_alignBaseline="@+id/num2"
         android:layout_alignBottom="@+id/num2"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/num3"
-        android:layout_marginRight="120dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginRight="60dp"
         android:background="#D8D8D8"
-        android:height="150dp"
+        android:height="130dp"
+        android:onClick="selectNumber"
         android:text="@string/filler_num"
         android:textSize="80dp"
-        android:width="150dp" />
-    
-    <Button
-        android:id="@+id/num2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/num3"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="15dp"
-        android:background="#D8D8D8"
-        android:height="150dp"
-        android:text="@string/filler_num"
-        android:textSize="80dp"
-        android:width="150dp" />
-
-    <Button
-        android:id="@+id/num3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/goal_num"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="35dp"
-        android:layout_toRightOf="@+id/num1"
-        android:background="#D8D8D8"
-        android:height="150dp"
-        android:text="@string/filler_num"
-        android:textSize="80dp"
-        android:width="150dp" />
-
-    <Button
-        android:id="@+id/num1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/num3"
-        android:layout_alignBottom="@+id/num3"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="40dp"
-        android:background="#D8D8D8"
-        android:height="150dp"
-        android:text="@string/filler_num"
-        android:textSize="80dp"
-        android:width="150dp" />
-
-    <Button
-        android:id="@+id/num5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/num3"
-        android:layout_alignBottom="@+id/num3"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="40dp"
-        android:background="#D8D8D8"
-        android:height="150dp"
-        android:text="@string/filler_num"
-        android:textSize="80dp"
-        android:width="150dp" />
+        android:width="130dp" />
 
     <Button
         android:id="@+id/divide"
@@ -118,6 +125,7 @@
         android:background="#D8D8D8"
         android:height="100dp"
         android:minWidth="100dp"
+        android:onClick="selectOperator"
         android:text="@string/divide"
         android:textSize="60dp" />
 
@@ -131,6 +139,7 @@
         android:background="#D8D8D8"
         android:height="100dp"
         android:minWidth="100dp"
+        android:onClick="selectOperator"
         android:text="@string/subtract"
         android:textSize="60dp" />
 
@@ -145,6 +154,7 @@
         android:background="#D8D8D8"
         android:height="100dp"
         android:minWidth="100dp"
+        android:onClick="selectOperator"
         android:text="@string/add"
         android:textSize="60dp" />
 
@@ -158,6 +168,7 @@
         android:background="#D8D8D8"
         android:height="100dp"
         android:minWidth="100dp"
+        android:onClick="selectOperator"
         android:text="@string/multiply"
         android:textSize="60dp" />
 
@@ -168,11 +179,26 @@
         android:layout_above="@id/add"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="20dp"
-        android:layout_marginLeft="27dp"
+        android:layout_marginLeft="40dp"
+        android:adjustViewBounds="true"
         android:contentDescription="@string/box_desc"
-        android:minHeight="160dp"
-        android:minWidth="160dp"
+        android:maxHeight="160dp"
+        android:maxWidth="160dp"
         android:src="@drawable/box" />
+    
+    <TextView
+        android:id="@+id/selNum1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/box1"
+        android:layout_alignLeft="@+id/box1"
+        android:layout_alignRight="@+id/box1"
+        android:layout_alignTop="@+id/box1"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="clearText"
+        android:text="@string/filler_num"
+        android:textSize="125dp" />
 
     <ImageView
         android:id="@+id/box2"
@@ -182,11 +208,26 @@
         android:layout_alignParentLeft="false"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="false"
-        android:layout_marginRight="27dp"
+        android:layout_marginRight="40dp"
+        android:adjustViewBounds="true"
         android:contentDescription="@string/box_desc"
-        android:minHeight="160dp"
-        android:minWidth="160dp"
+        android:maxHeight="160dp"
+        android:maxWidth="160dp"
         android:src="@drawable/box" />
+    
+    <TextView
+        android:id="@+id/selNum2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/box2"
+        android:layout_alignLeft="@+id/box2"
+        android:layout_alignRight="@+id/box2"
+        android:layout_alignTop="@+id/box2"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="clearText"
+        android:text="@string/filler_num"
+        android:textSize="125dp" />
 
     <ImageView
         android:id="@+id/circle"
@@ -195,10 +236,27 @@
         android:layout_alignBottom="@id/box1"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
         android:contentDescription="@string/circle_desc"
-        android:minHeight="140dp"
-        android:minWidth="140dp"
+        android:maxHeight="140dp"
+        android:maxWidth="140dp"
         android:src="@drawable/circle" />
+    
+    <TextView
+        android:id="@+id/selOp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/circle"
+        android:layout_alignRight="@+id/circle"
+        android:layout_alignTop="@+id/selNum1"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="clearText"
+        android:text="@string/multiply"
+        android:textSize="125dp" />
 
     <ImageView
         android:id="@+id/calculate"
