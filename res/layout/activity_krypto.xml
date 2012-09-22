@@ -12,22 +12,24 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="@string/filler_num"
-        android:textSize="150dp" />
-        
-     <Button
-         android:id="@+id/main_menu"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentBottom="true"
-         android:layout_alignParentRight="true"
-         android:layout_marginBottom="15dp"
-         android:layout_marginRight="20dp"
-         android:background="@color/normal_button_color"
-         android:minWidth="275dp"
-         android:onClick="returnToMenu"
-         android:text="@string/menu"
-         android:textSize="50dp" />
-        
+        android:textSize="150dp" 
+        android:typeface="serif" />
+
+    <Button
+        android:id="@+id/main_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/normal_button_color"
+        android:minWidth="275dp"
+        android:onClick="returnToMenu"
+        android:text="@string/menu"
+        android:textSize="45dp"
+        android:typeface="serif" />
+
     <Button
         android:id="@+id/new_puzzle"
         android:layout_width="wrap_content"
@@ -40,8 +42,9 @@
         android:minWidth="275dp"
         android:onClick="newPuzzle"
         android:text="@string/new_puz"
-        android:textSize="50dp" />
-    
+        android:textSize="45dp"
+        android:typeface="serif" />
+
     <Button
         android:id="@+id/num3"
         android:layout_width="wrap_content"
@@ -52,13 +55,14 @@
         android:layout_marginRight="150dp"
         android:layout_marginTop="15dp"
         android:background="@color/normal_button_color"
-        android:textColor="@color/text_black"
         android:height="130dp"
         android:onClick="selectNumber"
         android:text="@string/filler_num"
+        android:textColor="@color/text_black"
         android:textSize="80dp"
-        android:width="130dp" />
-    
+        android:width="130dp" 
+        android:typeface="serif" />
+
     <Button
         android:id="@+id/num1"
         android:layout_width="wrap_content"
@@ -68,12 +72,13 @@
         android:layout_marginLeft="150dp"
         android:layout_marginTop="15dp"
         android:background="@color/normal_button_color"
-        android:textColor="@color/text_black"
         android:height="130dp"
         android:onClick="selectNumber"
         android:text="@string/filler_num"
+        android:textColor="@color/text_black"
         android:textSize="80dp"
-        android:width="130dp" />
+        android:width="130dp" 
+        android:typeface="serif" />
 
     <Button
         android:id="@+id/num2"
@@ -84,12 +89,13 @@
         android:layout_marginLeft="45dp"
         android:layout_toRightOf="@+id/num0"
         android:background="@color/normal_button_color"
-        android:textColor="@color/text_black"
         android:height="130dp"
         android:onClick="selectNumber"
         android:text="@string/filler_num"
+        android:textColor="@color/text_black"
         android:textSize="80dp"
-        android:width="130dp" />
+        android:width="130dp" 
+        android:typeface="serif" />
 
     <Button
         android:id="@+id/num0"
@@ -104,7 +110,8 @@
         android:text="@string/filler_num"
         android:textColor="@color/text_black"
         android:textSize="80dp"
-        android:width="130dp" />
+        android:width="130dp" 
+        android:typeface="serif" />
 
     <Button
         android:id="@+id/num4"
@@ -119,7 +126,8 @@
         android:text="@string/filler_num"
         android:textColor="@color/text_black"
         android:textSize="80dp"
-        android:width="130dp" />
+        android:width="130dp" 
+        android:typeface="serif" />
 
     <Button
         android:id="@+id/divide"
@@ -134,7 +142,8 @@
         android:onClick="selectOperator"
         android:text="@string/divide"
         android:textColor="@color/text_black"
-        android:textSize="60dp" />
+        android:textSize="60dp" 
+        android:typeface="serif" />
 
     <Button
         android:id="@+id/subtract"
@@ -144,12 +153,13 @@
         android:layout_marginLeft="40dp"
         android:layout_toRightOf="@+id/add"
         android:background="@color/normal_button_color"
-        android:textColor="@color/text_black"
         android:height="100dp"
         android:minWidth="100dp"
         android:onClick="selectOperator"
         android:text="@string/subtract"
-        android:textSize="60dp" />
+        android:textColor="@color/text_black"
+        android:textSize="60dp" 
+        android:typeface="serif" />
 
     <Button
         android:id="@+id/add"
@@ -160,12 +170,13 @@
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="40dp"
         android:background="@color/normal_button_color"
-        android:textColor="@color/text_black"
         android:height="100dp"
         android:minWidth="100dp"
         android:onClick="selectOperator"
         android:text="@string/add"
-        android:textSize="60dp" />
+        android:textColor="@color/text_black"
+        android:textSize="60dp" 
+        android:typeface="serif" />
 
     <Button
         android:id="@+id/multiply"
@@ -180,7 +191,8 @@
         android:onClick="selectOperator"
         android:text="@string/multiply"
         android:textColor="@color/text_black"
-        android:textSize="60dp" />
+        android:textSize="60dp" 
+        android:typeface="serif" />
 
     <ImageView
         android:id="@+id/box1"
@@ -195,7 +207,7 @@
         android:maxHeight="160dp"
         android:maxWidth="160dp"
         android:src="@drawable/box" />
-    
+
     <TextView
         android:id="@+id/selectedNum0"
         android:layout_width="wrap_content"
@@ -208,7 +220,8 @@
         android:gravity="center"
         android:onClick="clearText"
         android:text="@string/filler_num"
-        android:textSize="125dp" />
+        android:textSize="125dp" 
+        android:typeface="serif" />
 
     <ImageView
         android:id="@+id/box2"
@@ -224,7 +237,7 @@
         android:maxHeight="160dp"
         android:maxWidth="160dp"
         android:src="@drawable/box" />
-    
+
     <TextView
         android:id="@+id/selectedNum1"
         android:layout_width="wrap_content"
@@ -237,7 +250,8 @@
         android:gravity="center"
         android:onClick="clearText"
         android:text="@string/filler_num"
-        android:textSize="125dp" />
+        android:textSize="125dp" 
+        android:typeface="serif" />
 
     <ImageView
         android:id="@+id/circle"
@@ -251,7 +265,7 @@
         android:maxHeight="140dp"
         android:maxWidth="140dp"
         android:src="@drawable/circle" />
-    
+
     <TextView
         android:id="@+id/selOp"
         android:layout_width="wrap_content"
@@ -266,38 +280,52 @@
         android:gravity="center"
         android:onClick="clearText"
         android:text="@string/multiply"
-        android:textSize="125dp" />
-
-    <ImageView
-        android:id="@+id/calculate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="23dp"
-        android:layout_marginTop="14dp"
-        android:adjustViewBounds="true"
-        android:clickable="true"
-        android:contentDescription="@string/right_arrow"
-        android:maxHeight="150dp"
-        android:maxWidth="150dp"
-        android:onClick="calculate"
-        android:src="@drawable/equals" />
+        android:textSize="125dp" 
+        android:typeface="serif" />
 
     <ImageView
         android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="23dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginRight="65dp"
         android:adjustViewBounds="true"
         android:clickable="true"
         android:contentDescription="@string/up_arrow"
-        android:maxHeight="150dp"
-        android:maxWidth="150dp"
+        android:maxHeight="100dp"
+        android:maxWidth="100dp"
         android:onClick="loadPuzzle"
         android:src="@drawable/reset" />
+
+    <ImageView
+        android:id="@+id/calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/num4"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="15dp"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:contentDescription="@string/right_arrow"
+        android:maxHeight="100dp"
+        android:maxWidth="100dp"
+        android:onClick="calculate"
+        android:src="@drawable/equals" />
+
+    <ImageView
+        android:id="@+id/undo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/calculate"
+        android:layout_toLeftOf="@id/calculate"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:contentDescription="@string/left_arrow"
+        android:maxHeight="100dp"
+        android:maxWidth="100dp"
+        android:onClick="undo"
+        android:src="@drawable/undo" />
 
 </RelativeLayout>
