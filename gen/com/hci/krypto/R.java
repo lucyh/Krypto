@@ -30,7 +30,7 @@ public final class R {
         public static final int undo=0x7f020009;
     }
     public static final class id {
-        public static final int Krypto=0x7f08001c;
+        public static final int Krypto=0x7f08001d;
         public static final int add=0x7f080009;
         public static final int box1=0x7f08000c;
         public static final int box2=0x7f08000e;
@@ -40,14 +40,15 @@ public final class R {
         public static final int equals=0x7f080017;
         public static final int goal_num=0x7f080000;
         public static final int instr1=0x7f080015;
-        public static final int instr2=0x7f080016;
-        public static final int instr3=0x7f080018;
-        public static final int instr4=0x7f080019;
-        public static final int kryptoIcon=0x7f08001a;
-        public static final int mainMenuButton10=0x7f08001d;
-        public static final int mainMenuButton25=0x7f08001b;
+        public static final int instr2=0x7f080018;
+        public static final int instr3=0x7f080019;
+        public static final int instr4=0x7f08001a;
+        public static final int instr5=0x7f080016;
+        public static final int kryptoIcon=0x7f08001b;
+        public static final int mainMenuButton10=0x7f08001e;
+        public static final int mainMenuButton25=0x7f08001c;
         public static final int main_menu=0x7f080001;
-        public static final int menu_settings=0x7f08001e;
+        public static final int menu_settings=0x7f08001f;
         public static final int multiply=0x7f08000b;
         public static final int new_puzzle=0x7f080002;
         public static final int num0=0x7f080006;
@@ -83,6 +84,7 @@ public final class R {
         public static final int instructions2=0x7f050019;
         public static final int instructions3=0x7f05001a;
         public static final int instructions4=0x7f05001b;
+        public static final int instructions5=0x7f05001c;
         public static final int left_arrow=0x7f050012;
         public static final int main_menu_button_10=0x7f050013;
         public static final int main_menu_button_25=0x7f050014;

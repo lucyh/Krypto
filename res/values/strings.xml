@@ -24,7 +24,11 @@
     <string name="quit">Quit</string>
     <string name="main_menu_instr">(Select a difficulty)</string>
     <string name="instructions1">Combine the five numbers using +, &#8722;, &#215;, &#247; to reach the goal number at the top of the screen.</string>
-    <string name="instructions2">Turn the device right to calculate the expression.</string>
+    <string name="instructions2">Tip device to:</string>
+    <string name="instructions3">Undo</string>
+    <string name="instructions4">Reset</string>
+    <string name="instructions5">Calculate</string>
+    <!-- <string name="instructions2">Turn the device right to calculate the expression.</string>
     <string name="instructions3">Turn the device left to undo the last calculation.</string>
-    <string name="instructions4">Tip the device back to reset the puzzle.</string>
+    <string name="instructions4">Tip the device back to reset the puzzle.</string> -->
 </resources>

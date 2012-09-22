@@ -1,12 +1,13 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:clickable="true"
     android:fitsSystemWindows="false"
     android:onClick="showPuzzle" >
-    <TextView
+
+    <TextView
         android:id="@+id/instr1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,80 +18,78 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:text="@string/instructions1"
-        android:textSize="50dp" 
+        android:textSize="45dp"
         android:typeface="serif" />
-
+
     <TextView
-        android:id="@+id/instr2"
+        android:id="@+id/instr5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/equals"
-        android:layout_marginLeft="320dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="120dp"
-        android:gravity="right"
-        android:text="@string/instructions2"
-        android:textSize="35dp"
+        android:layout_alignBottom="@+id/equals"
+        android:layout_alignLeft="@+id/instr2"
+        android:layout_alignTop="@+id/equals"
+        android:layout_marginLeft="50dp"
+        android:gravity="right|center_vertical"
+        android:text="@string/instructions5"
+        android:textSize="40dp"
         android:typeface="serif" />
-
+
     <TextView
         android:id="@+id/instr3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/undo"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="320dp"
-        android:layout_marginTop="120dp"
-        android:gravity="left"
+        android:layout_alignBottom="@id/undo"
+        android:layout_alignLeft="@id/instr5"
+        android:layout_alignTop="@id/undo"
+        android:gravity="left|center_vertical"
         android:text="@string/instructions3"
-        android:textSize="35dp"
+        android:textSize="40dp"
         android:typeface="serif" />
-
+
     <TextView
         android:id="@+id/instr4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/reset"
-        android:layout_marginLeft="75dp"
-        android:layout_marginRight="75dp"
-        android:gravity="center_horizontal"
+        android:layout_alignBottom="@id/reset"
+        android:layout_alignLeft="@id/instr3"
+        android:layout_alignTop="@id/reset"
+        android:gravity="left|center_vertical"
         android:text="@string/instructions4"
-        android:textSize="35dp"
+        android:textSize="40dp"
         android:typeface="serif" />
-
-    <ImageView
+
+    <ImageView
         android:id="@+id/equals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/instr4"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="-120dp"
-        android:layout_marginRight="5dp"
+        android:layout_below="@id/instr2"
+        android:layout_marginRight="100dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/right_arrow"
         android:maxHeight="150dp"
         android:maxWidth="150dp"
         android:src="@drawable/equals" />
-    <ImageView
+
+    <ImageView
         android:id="@+id/undo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/instr4"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="-120dp"
-        android:layout_marginLeft="5dp"
+        android:layout_alignRight="@id/equals"
+        android:layout_below="@id/equals"
+        android:layout_marginTop="20dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/left_arrow"
         android:maxHeight="150dp"
         android:maxWidth="150dp"
         android:src="@drawable/undo" />
-    <ImageView
+
+    <ImageView
         android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/instr1"
-        android:layout_centerHorizontal="true"
+        android:layout_alignRight="@id/undo"
+        android:layout_below="@id/undo"
         android:layout_marginTop="20dp"
         android:adjustViewBounds="true"
         android:baselineAlignBottom="true"
@@ -98,5 +97,18 @@
         android:maxHeight="150dp"
         android:maxWidth="150dp"
         android:src="@drawable/reset" />
+
+    <TextView
+        android:id="@+id/instr2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/instr1"
+        android:layout_alignRight="@id/instr1"
+        android:layout_below="@id/instr1"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/instructions2"
+        android:textSize="45dp"
+        android:typeface="serif" />
 
 </RelativeLayout>
