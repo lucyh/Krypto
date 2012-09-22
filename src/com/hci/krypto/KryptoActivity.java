@@ -168,28 +168,22 @@ public class KryptoActivity extends Activity
     
     public void displayNumbers()
     {
-    	for (int i = 0; i < 5; i++ )
+		hideOrDisplayNumber( findViewById( R.id.num0 ) );
+		hideOrDisplayNumber( findViewById( R.id.num1 ) );
+		hideOrDisplayNumber( findViewById( R.id.num2 ) );
+		hideOrDisplayNumber( findViewById( R.id.num3 ) );
+		hideOrDisplayNumber( findViewById( R.id.num4 ) );
+    }
+    
+    public void hideOrDisplayNumber( View view )
+    {
+    	if ( ((TextView)view).getText().equals("") )
     	{
-    		if ( !((TextView)findViewById( R.id.num0 )).getText().equals( "" ) )
-    		{
-    			findViewById( R.id.num0 ).setVisibility( View.VISIBLE );
-    		}
-    		if ( !((TextView)findViewById( R.id.num1 )).getText().equals( "" ) )
-    		{
-    			findViewById( R.id.num1 ).setVisibility( View.VISIBLE );
-    		}
-    		if ( !((TextView)findViewById( R.id.num2 )).getText().equals( "" ) )
-    		{
-    			findViewById( R.id.num2 ).setVisibility( View.VISIBLE );
-    		}
-    		if ( !((TextView)findViewById( R.id.num3 )).getText().equals( "" ) )
-    		{
-    			findViewById( R.id.num3 ).setVisibility( View.VISIBLE );
-    		}
-    		if ( !((TextView)findViewById( R.id.num4 )).getText().equals( "" ) )
-    		{
-    			findViewById( R.id.num4 ).setVisibility( View.VISIBLE );
-    		}
+    		view.setVisibility( View.INVISIBLE );
+    	}
+    	else
+    	{
+    		view.setVisibility( View.VISIBLE );
     	}
     }
     
