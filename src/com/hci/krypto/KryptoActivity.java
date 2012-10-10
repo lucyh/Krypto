@@ -421,7 +421,7 @@ public class KryptoActivity extends Activity
             float diffX = mOrigX - mSensorX;
             float diffY = mOrigY - mSensorY;
             
-	        if ( diffX > -4 ) { undoLock = false; }
+	        if ( diffX > -4  && diffY < 4) { undoLock = false; }
 	        
 	        if ( diffX > 7 ) { calculate(); }
 	        else if ( diffX < -7 && !undoLock )
@@ -429,7 +429,7 @@ public class KryptoActivity extends Activity
 	        	undo();
 	        	undoLock = true;
 	        }
-	        else if ( diffY > 7 ) { loadPuzzle(); }
+	        else if ( diffY > 9 && diffX < 3 && diffX > -3 ) { loadPuzzle(); }
 	    }
 
 		@Override
