@@ -26,10 +26,12 @@ public class KryptoActivity extends Activity
 	private int[][]						state = new int[5][5];
     private float 						mSensorX;
     private float 						mSensorY;
-    private float						mSensorZ;
+    private float						mOrigX;
+    private float						mOrigY;
     private KryptoSensor				mKryptoSensor;
     private SensorManager				mSensorManager;
     private boolean						undoLock = false;;
+    private boolean						calibrated = false;;
     
     public void addToDisplay( int num )
     {
@@ -239,21 +241,23 @@ public class KryptoActivity extends Activity
     public void newPuzzle( View view )
     {
     	kp = new KryptoPuzzle( max );
+    	calibrated = false;
     	loadPuzzle();
     }
     
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        mKryptoSensor = new KryptoSensor(this);
-        
+        mKryptoSensor = new KryptoSensor(this);    
     }
     
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) 
+    {
         getMenuInflater().inflate(R.layout.menu, menu);
         return true;
     }
@@ -379,7 +383,7 @@ public class KryptoActivity extends Activity
 
     class KryptoSensor implements SensorEventListener
     {
-        private Sensor 						mAccelerometer;
+        private Sensor 					mAccelerometer;
 
     	public KryptoSensor(Context context) 
     	{
@@ -389,11 +393,13 @@ public class KryptoActivity extends Activity
     	public void startSensor()
     	{
     		mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+    		calibrated = false;
     	}
     	
     	public void stopSensor()
     	{
     		mSensorManager.unregisterListener(this);
+    		calibrated = false;
     	}
     	
 	    @Override
@@ -403,17 +409,27 @@ public class KryptoActivity extends Activity
 
 	        mSensorX = event.values[0];
             mSensorY = event.values[1];
-            mSensorZ = event.values[2];
-
-	        if ( mSensorX < 4 && mSensorY > 0 ) { undoLock = false; }
+            
+            if ( !calibrated )
+            {
+            	mOrigX = mSensorX;
+            	mOrigY = mSensorY;
+            }
+            
+            calibrated = true;
+            
+            float diffX = mOrigX - mSensorX;
+            float diffY = mOrigY - mSensorY;
+            
+	        if ( diffX > -4 ) { undoLock = false; }
 	        
-	        if ( mSensorX < -6 ) { calculate(); }
-	        else if ( mSensorX > 6 && !undoLock )
+	        if ( diffX > 7 ) { calculate(); }
+	        else if ( diffX < -7 && !undoLock )
 	        {
 	        	undo();
 	        	undoLock = true;
 	        }
-	        else if ( mSensorZ > 9 && mSensorX > -2 && mSensorX < 2 ) { loadPuzzle(); }
+	        else if ( diffY > 7 ) { loadPuzzle(); }
 	    }
 
 		@Override
