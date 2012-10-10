@@ -30,7 +30,7 @@ public final class R {
         public static final int undo=0x7f020009;
     }
     public static final class id {
-        public static final int Krypto=0x7f08001d;
+        public static final int Krypto=0x7f08001e;
         public static final int add=0x7f080009;
         public static final int box1=0x7f08000c;
         public static final int box2=0x7f08000e;
@@ -44,11 +44,11 @@ public final class R {
         public static final int instr3=0x7f080019;
         public static final int instr4=0x7f08001a;
         public static final int instr5=0x7f080016;
-        public static final int kryptoIcon=0x7f08001b;
-        public static final int mainMenuButton10=0x7f08001e;
-        public static final int mainMenuButton25=0x7f08001c;
+        public static final int kryptoIcon=0x7f08001c;
+        public static final int mainMenuButton10=0x7f08001f;
+        public static final int mainMenuButton25=0x7f08001d;
         public static final int main_menu=0x7f080001;
-        public static final int menu_settings=0x7f08001f;
+        public static final int menu_settings=0x7f080020;
         public static final int multiply=0x7f08000b;
         public static final int new_puzzle=0x7f080002;
         public static final int num0=0x7f080006;
@@ -60,6 +60,7 @@ public final class R {
         public static final int selOp=0x7f080011;
         public static final int selectedNum0=0x7f08000d;
         public static final int selectedNum1=0x7f08000f;
+        public static final int startGame=0x7f08001b;
         public static final int subtract=0x7f08000a;
         public static final int undo=0x7f080014;
     }
@@ -98,6 +99,7 @@ public final class R {
         public static final int op_text_size=0x7f05000b;
         public static final int quit=0x7f050016;
         public static final int right_arrow=0x7f050010;
+        public static final int startGame=0x7f05001d;
         public static final int subtract=0x7f05000d;
         public static final int title_activity_krypto=0x7f050002;
         public static final int up_arrow=0x7f050011;

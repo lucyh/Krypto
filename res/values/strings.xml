@@ -28,6 +28,7 @@
     <string name="instructions3">Undo</string>
     <string name="instructions4">Reset</string>
     <string name="instructions5">Calculate</string>
+    <string name="startGame">Start Game</string>
     <!-- <string name="instructions2">Turn the device right to calculate the expression.</string>
     <string name="instructions3">Turn the device left to undo the last calculation.</string>
     <string name="instructions4">Tip the device back to reset the puzzle.</string> -->

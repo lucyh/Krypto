@@ -2,7 +2,12 @@ package com.hci.krypto;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.View;
@@ -19,7 +24,13 @@ public class KryptoActivity extends Activity
 	private int							max;
 	private int							iter = 0;
 	private int[][]						state = new int[5][5];
-		
+    private float 						mSensorX;
+    private float 						mSensorY;
+    private float						mSensorZ;
+    private KryptoSensor				mKryptoSensor;
+    private SensorManager				mSensorManager;
+    private boolean						undoLock = false;;
+    
     public void addToDisplay( int num )
     {
     	String strNum = String.valueOf( num );
@@ -61,7 +72,7 @@ public class KryptoActivity extends Activity
     	setFontDisplayNum( (TextView)findViewById(R.id.num4), displayedNumbers[4] );
     }
     
-    public void calculate( View view )
+    public void calculate()
     {
     	int newNum = 0;
     	
@@ -187,7 +198,7 @@ public class KryptoActivity extends Activity
     	}
     }
     
-    public void loadPuzzle( View view )
+    public void loadPuzzle()
     {
     	for (int i = 0; i < 5; i++ )
     	{
@@ -228,7 +239,7 @@ public class KryptoActivity extends Activity
     public void newPuzzle( View view )
     {
     	kp = new KryptoPuzzle( max );
-    	loadPuzzle( view );
+    	loadPuzzle();
     }
     
     @Override
@@ -236,6 +247,9 @@ public class KryptoActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mKryptoSensor = new KryptoSensor(this);
+        
     }
     
     @Override
@@ -254,6 +268,7 @@ public class KryptoActivity extends Activity
     
     public void returnToMenu( View view )
     {
+    	mKryptoSensor.stopSensor();
     	setContentView(R.layout.menu);
     }
     
@@ -341,10 +356,11 @@ public class KryptoActivity extends Activity
     public void showPuzzle( View view )
     {
     	setContentView(R.layout.activity_krypto);
+    	mKryptoSensor.startSensor();
         newPuzzle( findViewById(R.id.new_puzzle) );
     }
     
-    public void undo( View view )
+    public void undo()
     {
     	if ( selectedNumbers[0] != -1 || selectedNumbers[1] != -1 || op != 'n')
     	{
@@ -359,5 +375,50 @@ public class KryptoActivity extends Activity
     			displayNumbers();
     		}
     	}
+    }
+
+    class KryptoSensor implements SensorEventListener
+    {
+        private Sensor 						mAccelerometer;
+
+    	public KryptoSensor(Context context) 
+    	{
+            mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        }
+    	
+    	public void startSensor()
+    	{
+    		mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+    	}
+    	
+    	public void stopSensor()
+    	{
+    		mSensorManager.unregisterListener(this);
+    	}
+    	
+	    @Override
+	    public void onSensorChanged(SensorEvent event) 
+	    {
+	        if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER) { return; }
+
+	        mSensorX = event.values[0];
+            mSensorY = event.values[1];
+            mSensorZ = event.values[2];
+
+	        if ( mSensorX < 4 && mSensorY > 0 ) { undoLock = false; }
+	        
+	        if ( mSensorX < -6 ) { calculate(); }
+	        else if ( mSensorX > 6 && !undoLock )
+	        {
+	        	undo();
+	        	undoLock = true;
+	        }
+	        else if ( mSensorZ > 9 && mSensorX > -2 && mSensorX < 2 ) { loadPuzzle(); }
+	    }
+
+		@Override
+		public void onAccuracyChanged(Sensor arg0, int arg1) 
+		{
+		}
     }
 }

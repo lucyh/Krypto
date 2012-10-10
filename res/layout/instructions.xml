@@ -4,8 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:clickable="true"
-    android:fitsSystemWindows="false"
-    android:onClick="showPuzzle" >
+    android:fitsSystemWindows="false" >
 
     <TextView
         android:id="@+id/instr1"
@@ -70,27 +69,27 @@
         android:maxHeight="150dp"
         android:maxWidth="150dp"
         android:src="@drawable/equals" />
-
+
     <ImageView
         android:id="@+id/undo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/equals"
         android:layout_below="@id/equals"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/left_arrow"
         android:maxHeight="150dp"
         android:maxWidth="150dp"
         android:src="@drawable/undo" />
-
+
     <ImageView
         android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/undo"
         android:layout_below="@id/undo"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:baselineAlignBottom="true"
         android:contentDescription="@string/up_arrow"
@@ -109,6 +108,21 @@
         android:layout_marginTop="30dp"
         android:text="@string/instructions2"
         android:textSize="45dp"
+        android:typeface="serif" />
+
+    <Button
+        android:id="@+id/startGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@color/selected_button_color"
+        android:minHeight="60dp"
+        android:minWidth="250dp"
+        android:onClick="showPuzzle"
+        android:text="@string/startGame"
+        android:textSize="40dp"
         android:typeface="serif" />
 
 </RelativeLayout>
