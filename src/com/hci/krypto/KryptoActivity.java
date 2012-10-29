@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
+// screen width = 600, height = 900
 public class KryptoActivity extends Activity 
 {
 	private KryptoPuzzle 				kp;
@@ -30,8 +31,9 @@ public class KryptoActivity extends Activity
     private float						mOrigY;
     private KryptoSensor				mKryptoSensor;
     private SensorManager				mSensorManager;
-    private boolean						undoLock = false;;
-    private boolean						calibrated = false;;
+    private boolean						undoLock = false;
+    private boolean						calcLock = false;
+    private boolean						calibrated = false;
     
     public void addToDisplay( int num )
     {
@@ -78,6 +80,8 @@ public class KryptoActivity extends Activity
     {
     	int newNum = 0;
     	
+    	setError("");
+    	
     	char add = ((TextView)findViewById(R.id.add)).getText().charAt(0);
     	char sub = ((TextView)findViewById(R.id.subtract)).getText().charAt(0);
     	char mul = ((TextView)findViewById(R.id.multiply)).getText().charAt(0);
@@ -93,6 +97,7 @@ public class KryptoActivity extends Activity
     			newNum = selectedNumbers[0] - selectedNumbers[1];
     			if ( newNum < 0 )
     			{
+    				setError("Invalid subtraction.");
     				return;
     			}
     		}
@@ -108,6 +113,7 @@ public class KryptoActivity extends Activity
     			}
     			else
     			{
+    				setError("Invalid division.");
     				return;
     			}
     		}
@@ -127,11 +133,26 @@ public class KryptoActivity extends Activity
     		iter++;
     		setState( iter );
     		resetOpButtonColors();
+    		
+    		String num = ((TextView)findViewById(R.id.num0)).getText().toString();
+    		String goal = ((TextView)findViewById(R.id.goal_num)).getText().toString();
+    		if ( iter == 4 && num.equals(goal))
+			{
+    			findViewById(R.id.success).setVisibility(View.VISIBLE);
+			}
+    	}
+    	else if ( op != 'n' 
+    		   || selectedNumbers[0] != -1 
+    		   || selectedNumbers[1] != -1 
+    		    )
+    	{
+    		setError("Select two numbers and an operator.");
     	}
     }
     
     public void clearSelected()
     {
+    	setError("");
     	clearText(findViewById(R.id.selectedNum0));
     	clearText(findViewById(R.id.selectedNum1));
     	clearText(findViewById(R.id.selOp));
@@ -139,6 +160,7 @@ public class KryptoActivity extends Activity
     
     public void clearState()
     {
+    	setError("");
     	iter = 0;
     	for (int i = 0; i < 5; i++ )
     	{
@@ -202,6 +224,8 @@ public class KryptoActivity extends Activity
     
     public void loadPuzzle()
     {
+    	findViewById(R.id.success).setVisibility(View.INVISIBLE);
+    	setError("");
     	for (int i = 0; i < 5; i++ )
     	{
     		displayedNumbers[i] = kp.getNum(i);
@@ -224,6 +248,7 @@ public class KryptoActivity extends Activity
     
     public void loadState( int i )
     {
+    	setError("");
     	for (int j = 0; j < 5; j++ )
     	{
     		displayedNumbers[j] = state[i][j];
@@ -240,6 +265,8 @@ public class KryptoActivity extends Activity
 
     public void newPuzzle( View view )
     {
+    	findViewById(R.id.success).setVisibility(View.INVISIBLE);
+    	setError("");
     	kp = new KryptoPuzzle( max );
     	calibrated = false;
     	loadPuzzle();
@@ -278,6 +305,10 @@ public class KryptoActivity extends Activity
     
     public void selectNumber( View view )
     {
+    	if ( findViewById(R.id.success).getVisibility() == View.VISIBLE )
+    	{
+    		return;
+    	}
     	String strNum = ((TextView)view).getText().toString();
     	if ( selectedNumbers[0] == -1 )
     	{
@@ -299,6 +330,10 @@ public class KryptoActivity extends Activity
     
     public void selectOperator( View view )
     {
+    	if ( findViewById(R.id.success).getVisibility() == View.VISIBLE )
+    	{
+    		return;
+    	}
     	op = ((TextView)view).getText().charAt(0);
     	((TextView)findViewById(R.id.selOp)).setText(String.valueOf(op));
     	resetOpButtonColors();
@@ -366,6 +401,7 @@ public class KryptoActivity extends Activity
     
     public void undo()
     {
+    	findViewById(R.id.success).setVisibility(View.INVISIBLE);
     	if ( selectedNumbers[0] != -1 || selectedNumbers[1] != -1 || op != 'n')
     	{
     		clearSelected();
@@ -380,6 +416,11 @@ public class KryptoActivity extends Activity
     		}
     	}
     }
+
+    public void setError(String err)
+	{
+    	setText(findViewById(R.id.error), err );
+	}
 
     class KryptoSensor implements SensorEventListener
     {
@@ -421,9 +462,17 @@ public class KryptoActivity extends Activity
             float diffX = mOrigX - mSensorX;
             float diffY = mOrigY - mSensorY;
             
-	        if ( diffX > -4  && diffY < 4) { undoLock = false; }
+	        if ( diffX > -4  && diffY < 2) 
+	        { 
+	        	undoLock = false;
+	        	calcLock = false;
+	        }
 	        
-	        if ( diffX > 7 ) { calculate(); }
+	        if ( diffX > 5 && !calcLock ) 
+	        { 
+	        	calculate();
+	        	calcLock = true;
+	        }
 	        else if ( diffX < -7 && !undoLock )
 	        {
 	        	undo();

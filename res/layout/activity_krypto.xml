@@ -325,4 +325,35 @@
         android:maxWidth="100dp"
         android:src="@drawable/undo" />
 
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/box1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_horizontal"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="20dip"
+        android:textStyle="italic"
+        android:typeface="serif" />
+
+    <TextView
+        android:id="@+id/success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/num1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/text_white"
+        android:gravity="center_horizontal"
+        android:text="@string/success"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/normal_button_color"
+        android:textSize="90dip"
+        android:textStyle="italic"
+        android:typeface="serif"
+        android:visibility="invisible" />
+
 </RelativeLayout>
